@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
 import PageRender from './customRouter/PageRender';
-import PrivateRoute from './customRouter/PrivateRoute';
+import PrivateRouter from './customRouter/PrivateRouter';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
@@ -21,11 +22,12 @@ function App() {
   return (
     <div>
       <Router>
+        {auth.user && <Header />}
         <Switch>
           <Route path="/" exact component={auth.user ? Home : Login} />
           <Route path="/register" exact component={Register} />
-          <PrivateRoute exect path='/:page' component={PageRender} />
-          <PrivateRoute exect path='/:page/:id' component={PageRender} />
+          <PrivateRouter exact path="/:page" component={PageRender} />
+          <PrivateRouter exact path="/:page/:id" component={PageRender} />
         </Switch>
       </Router>
     </div>

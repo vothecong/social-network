@@ -9,7 +9,7 @@ export const LoginAction = (email, password) => {
                 url: '/auth/login',
                 data: JSON.stringify({ email, password })
             });
-
+            localStorage.setItem('firstLogin', true);
             dispatch({ type: GLOBALTYPES.AUTH, payload: { user: data.user } })
         } catch (error) {
             console.error(error);
@@ -19,15 +19,17 @@ export const LoginAction = (email, password) => {
 
 export const VerifyAction = () => {
     return async (dispatch) => {
-        try {
-            const { data } = await InstanceAxios({
-                method: "GET",
-                url: '/auth/verify'
-            });
-            // console.log("response VerifyAction", data.user);
-            dispatch({ type: GLOBALTYPES.AUTH, payload: { user: data.user } })
-        } catch (error) {
-            console.error(error);
+        const firstLogin = localStorage.getItem('firstLogin');
+        if (firstLogin) {
+            try {
+                const { data } = await InstanceAxios({
+                    method: "GET",
+                    url: '/auth/verify'
+                });
+                dispatch({ type: GLOBALTYPES.AUTH, payload: { user: data.user } })
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 }
