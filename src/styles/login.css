@@ -1,0 +1,7 @@
+.form-login {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  min-width: 30%;
+  display: inline-block;
+}
