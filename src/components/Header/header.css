@@ -13,13 +13,22 @@
   padding-top: 0.4rem;
 }
 
-.header .dropdown-toggle::after {
-  display: none !important;
-}
-
 .show_notify .dropdown-menu.show {
   transform: translate3d(-11.5rem, 48px, 0px) !important;
   min-width: 19rem;
+}
+
+.post-card {
+  box-shadow: 2px 2px 2px 2px grey;
+  border-radius: 2px;
+}
+
+/* -------------- CARD BODY -------------- */
+.post-card-body {
+  min-height: 15rem;
+  padding: 0.2rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 @media (min-width: 425px) {

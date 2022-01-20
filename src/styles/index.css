@@ -14,8 +14,6 @@ code {
     monospace;
 }
 
-@import url("./login.css");
-
 .wrapper {
   min-height: 100vh;
 }
@@ -28,3 +26,11 @@ a {
   text-decoration: none !important;
   color: black !important;
 }
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+@import url("./login.css");
+
+@import url("./avatar.css");

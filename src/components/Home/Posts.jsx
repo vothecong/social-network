@@ -1,10 +1,16 @@
 import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import PortCard from '../PortCard';
 
 function Posts() {
     return (
-        <div>
-            Posts
-        </div>
+        <Container>
+            <PortCard />
+            <PortCard />
+            <PortCard />
+            <PortCard />
+            <PortCard />
+        </Container>
     )
 }
 

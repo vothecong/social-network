@@ -7,7 +7,7 @@ function Home() {
         <Container >
             <Row>
                 <Col xs={12} md={8} >
-                    <div className="wrapper border border-success">
+                    <div className="wrapper">
                         <Posts />
                     </div>
                 </Col>

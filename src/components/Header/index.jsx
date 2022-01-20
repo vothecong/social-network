@@ -64,7 +64,6 @@ function Header() {
                             <NavDropdown
                                 title={
                                     <div className="pull-left">
-                                        {/* <MdAccountCircle fontSize={30} /> */}
                                         <IoPersonCircleSharp fontSize={30} />
                                     </div>
                                 }
