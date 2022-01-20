@@ -50,7 +50,7 @@ function Header() {
                                 className="show_notify"
                             >
                                 <Link to="/profile" className=" text-capitalize px-3">
-                                    profile
+                                    notify
                                 </Link>{" "}
                                 <br />
                                 <label htmlFor="" className=" text-capitalize px-3">
