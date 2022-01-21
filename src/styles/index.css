@@ -31,6 +31,13 @@ a {
   display: none !important;
 }
 
+textarea {
+  overflow-y: hidden;
+  outline: none;
+}
+
 @import url("./login.css");
 
 @import url("./avatar.css");
+
+@import url("./home.css");

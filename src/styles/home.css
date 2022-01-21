@@ -1,0 +1,27 @@
+.post-card,
+.form-post,
+.wrapper-form-post {
+  box-shadow: 2px 2px 2px 2px grey;
+  border-radius: 2px;
+}
+
+/* -------------- CARD BODY -------------- */
+.post-card-body {
+  min-height: 15rem;
+  padding: 0.2rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.form-post {
+  min-height: 10rem;
+}
+
+.supper_form_post {
+  top: 0.3rem;
+  min-width: 100%;
+}
+
+.body_form_post {
+  flex: 1 2 15rem;
+}
