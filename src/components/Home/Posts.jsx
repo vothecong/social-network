@@ -10,10 +10,6 @@ function Posts() {
             <PostForm />
 
             <PortCard />
-            <PortCard />
-            <PortCard />
-            <PortCard />
-            <PortCard />
         </Container>
     );
 }

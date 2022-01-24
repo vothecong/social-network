@@ -6,8 +6,13 @@ import { FaFacebookMessenger } from "react-icons/fa";
 import { RiCompassDiscoverFill } from "react-icons/ri";
 import { IoNotifications, IoPersonCircleSharp } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
 
 function Header() {
+
+    const { auth } = useSelector(state => state);
+
     return (
         <Container className="header">
             <Row>
@@ -30,12 +35,12 @@ function Header() {
                             </NavLink>
                         </li>
                         <li className="nav-link">
-                            <NavLink to="/">
+                            <NavLink to="/message">
                                 <FaFacebookMessenger fontSize={30} />
                             </NavLink>
                         </li>
                         <li className="nav-link">
-                            <NavLink to="/">
+                            <NavLink to="/discover">
                                 <RiCompassDiscoverFill fontSize={30} />
                             </NavLink>
                         </li>
@@ -49,7 +54,7 @@ function Header() {
                                 id="basic-nav-dropdown"
                                 className="show_notify"
                             >
-                                <Link to="/profile" className=" text-capitalize px-3">
+                                <Link to={`/profile/${auth.user._id}`} className=" text-capitalize px-3">
                                     notify
                                 </Link>{" "}
                                 <br />
@@ -70,7 +75,7 @@ function Header() {
                                 id="basic-nav-dropdown"
                                 className="show_profile"
                             >
-                                <Link to="/profile" className=" text-capitalize px-3">
+                                <Link to={`/profile/${auth.user._id}`} className=" text-capitalize px-3">
                                     profile
                                 </Link>{" "}
                                 <br />

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 const PROXY = "http://localhost:4000";
 
 const InstanceAxios = axios.create({
@@ -37,7 +38,7 @@ InstanceAxios.interceptors.response.use(
             return response;
         }
 
-        console.log({ response });
+        // console.log({ response });
         // const { code, message } = response.data;
         // if (code && code === 401) {
         //     if (message && message === 'jwt expired') {
@@ -56,13 +57,31 @@ InstanceAxios.interceptors.response.use(
         // }
         return response;
     },
-    (err) => {
+    async (err) => {
+        // console.log("err by response InstanceAxios", err);
+        // console.log('get cookie', document.cookie, Cookies.get('refresh'))
+        // console.log("code", err.response);
+        // console.log("code", err.response.status);
+        const cookie = Cookies.get('refresh');
+        // const config = err.config;
+        //  console.log('config', err.config)
+        if (err.response.status === 401) {
+            console.log("CO CHAY VO KO ");
+            const data = await refreshToken(cookie);
+            console.log("data by refresh token", data);
+        }
         return Promise.reject(err);
     }
 );
 
-async function refreshToken() {
-    return (await InstanceAxios.get('/auth/refresh_token')).data;
+async function refreshToken(token) {
+    return (await InstanceAxios({
+        method: "GET",
+        url: '/auth/refresh_token',
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })).data;
 }
 
 export default InstanceAxios;

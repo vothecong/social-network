@@ -1,0 +1,49 @@
+.profile-header {
+}
+
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.profile_avatar {
+  width: 10rem;
+  height: 10rem;
+}
+
+/* .profile-info-user div:first-child { */
+.profile-info-user {
+  text-align: center;
+}
+
+.post_profile {
+  min-height: 10rem;
+  border: 1px solid gray;
+}
+
+.profile-post-save .active {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+}
+
+@media (min-width: 768px) {
+  .profile-info-user {
+    text-align: unset;
+  }
+
+  .profile_avatar {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .post_profile {
+    min-height: 10rem;
+    border: 1px solid gray;
+  }
+}
+
+@media (min-width: 992px) {
+  .post_profile {
+    min-height: 15rem;
+  }
+}

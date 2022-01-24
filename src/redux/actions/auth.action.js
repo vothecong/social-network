@@ -1,5 +1,6 @@
 import InstanceAxios from "../../utils/axios.instance";
 import { GLOBALTYPES } from "./global.types";
+import Cookies from 'js-cookie';
 
 export const LoginAction = (email, password) => {
     return async (dispatch) => {
@@ -9,8 +10,19 @@ export const LoginAction = (email, password) => {
                 url: '/auth/login',
                 data: JSON.stringify({ email, password })
             });
+            console.log({ data });
+            Cookies.set('refresh', data.refreshToken, {
+                secure: true,
+                path: '/',
+                sameSite: 'none',
+                // expires: 30 * 24 * 60 * 60 * 1000,
+                expires: 2 * 60 * 1000,
+                domain: ''
+            });
+            //refreshToken
             localStorage.setItem('firstLogin', true);
             dispatch({ type: GLOBALTYPES.AUTH, payload: { user: data.user } })
+
         } catch (error) {
             console.error(error);
         }
